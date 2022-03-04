@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-function QuickSort() {
-  const [arr, setArr] = useState([]);
+function QuickSort({arrayProp}) {
+  const [arr, setArr] = useState(arrayProp);
   const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
   const [pivotBar, setPivotBar] = useState({})
 
   useEffect(() => {
-    generateRandomArray();
-  }, []);
-
-  const generateRandomArray = () => {
-    const tempArr = [];
-    for (let i = 0; i < 100; i++) {
-      tempArr.push({
-        num: Math.floor(Math.random() * 1000),
-        idx: i,
-      });
-    }
-    setArr([...tempArr]);
-  };
+    setArr(arrayProp)
+  }, [arrayProp])
 
   function timeout() {
     return new Promise((resolve) => setTimeout(resolve, delay));
@@ -73,7 +62,6 @@ function QuickSort() {
       >
         Quick Sort
       </button>
-      <button className="sort-btn" onClick={() => generateRandomArray()}>Generate Random Array</button>
       <div className="barchart">
         {arr.map((num) => (
           <div key={num.idx}>

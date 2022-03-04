@@ -1,27 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import "./MergeSort.css"
 
-function MergeSort() {
-    const [arr, setArr] = useState([]);
+function MergeSort({arrayProp}) {
+    const arr = arrayProp;
     const [masterArr, setMasterArr] = useState([]);
     const [delay, setDelay] = useState(5);
     const [activeBars, setActiveBars] = useState([]);
-  
+
     useEffect(() => {
-      generateRandomArray();
-    }, []);
-  
-    const generateRandomArray = () => {
-      const tempArr = [];
-      for (let i = 0; i < 100; i++) {
-        tempArr.push({
-          num: Math.floor(Math.random() * 1000),
-          idx: i,
-        });
-      }
-      setArr([...tempArr]);
-      setMasterArr([...tempArr]);
-    };
+        setMasterArr(arrayProp)
+    }, [arrayProp])
   
     function timeout() {
       return new Promise(resolve => setTimeout(resolve, delay));
@@ -114,7 +102,6 @@ function MergeSort() {
         >
           Merge Sort
         </button>
-        <button className="sort-btn" onClick={() => generateRandomArray()}>Generate Random Array</button>
         <div className="barchart">
           {masterArr.map((num) => (
             <div key={num.idx}>
