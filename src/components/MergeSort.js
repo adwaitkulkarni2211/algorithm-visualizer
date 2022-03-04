@@ -13,7 +13,7 @@ function MergeSort() {
   
     const generateRandomArray = () => {
       const tempArr = [];
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 100; i++) {
         tempArr.push({
           num: Math.floor(Math.random() * 1000),
           idx: i,
