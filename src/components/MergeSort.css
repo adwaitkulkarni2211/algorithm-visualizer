@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .barchart {
+    border: 0px solid black;
+    height: 50vh;
+    width: 50vw;
+    margin: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .sort-btn {
+    height: 2rem;
+    margin: 2rem;
+  }
