@@ -1,0 +1,50 @@
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #1f2937;
+}
+
+#sort-options {
+    display: flex;
+    width: 50vw;
+    color: white;
+}
+
+.sort-option {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chart-options {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: #6366f1;
+    border: 0px;
+    padding: 0.5rem;
+    height: 5vh;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#size-input {
+    background-color: #374151;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+    width: 15vw;
+    text-align: center;
+}
+
+#sort-btn {
+    width: 5vw;
+    margin-right: 2rem;
+}

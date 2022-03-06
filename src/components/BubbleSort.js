@@ -58,7 +58,7 @@ function BubbleSort({ arrayProp }) {
                 backgroundColor: activeBars.find((bar) => bar.idx == num.idx)
                   ? "black"
                   : sortedBars.find(bar => bar.idx == num.idx)
-                  ? "green"
+                  ? "lightgreen"
                   : "cyan"
               }}
             ></div>
