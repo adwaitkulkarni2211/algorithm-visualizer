@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MergeSort from "./MergeSort";
 import QuickSort from "./QuickSort";
 import BubbleSort from "./BubbleSort.js";
+import SelectionSort from "./SelectionSort";
 
 function OptionsBar() {
   const [arr, setArr] = useState([]);
@@ -55,6 +56,7 @@ function OptionsBar() {
       <MergeSort arrayProp={arr}/>
       <QuickSort arrayProp={arr}/>
       <BubbleSort arrayProp={arr}/>
+      <SelectionSort arrayProp={arr}/>
     </div>
   );
 }
