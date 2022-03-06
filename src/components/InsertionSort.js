@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function BubbleSort({ arrayProp }) {
+function InsertionSort({ arrayProp }) {
   const [arr, setArr] = useState([]);
   const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
@@ -14,22 +14,28 @@ function BubbleSort({ arrayProp }) {
     return new Promise((resolve) => setTimeout(resolve, delay));
   }
 
-  const bubbleSort = async (arr) => {
-    for(let i=0; i<arr.length - 1; i++) {
-        for(let j=0; j<arr.length - i - 1; j++) {
-            await timeout();
-            setActiveBars([arr[j], arr[j+1]]);
+  const insertionSort = async (arr) => {
+    await timeout();
+    setSortedBars([arr[0]]);
 
-            if(arr[j + 1].num < arr[j].num) {
-                let temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
+    for (let i = 1; i < arr.length; i++) {
+      for (let j = i - 1; j >= 0; j--) {
         await timeout();
-        setSortedBars([...arr.slice(arr.length - i - 1)])
-        setActiveBars([]);
-        setArr([...arr]);
+        setActiveBars([arr[j], arr[j + 1]]);
+
+        if (arr[j].num > arr[j + 1].num) {
+          let temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        } else {
+            break;
+        }
+      }
+
+      await timeout();
+      setSortedBars([...arr.slice(0, i + 1)])
+      setActiveBars([]);
+      setArr([...arr])
     }
     await timeout();
     setSortedBars([]);
@@ -41,10 +47,10 @@ function BubbleSort({ arrayProp }) {
         className="sort-btn"
         onClick={async () => {
           let tempArr = [...arr];
-          await bubbleSort(tempArr);
+          await insertionSort(tempArr);
         }}
       >
-        Bubble Sort
+        Insertion Sort
       </button>
       <div className="barchart">
         {arr.map((num) => (
@@ -57,9 +63,9 @@ function BubbleSort({ arrayProp }) {
                 margin: `3px`,
                 backgroundColor: activeBars.find((bar) => bar.idx == num.idx)
                   ? "black"
-                  : sortedBars.find(bar => bar.idx == num.idx)
-                  ? "green"
-                  : "cyan"
+                  : sortedBars.find((bar) => bar.idx == num.idx)
+                  ? "lightgreen"
+                  : "cyan",
               }}
             ></div>
           </div>
@@ -69,4 +75,4 @@ function BubbleSort({ arrayProp }) {
   );
 }
 
-export default BubbleSort;
+export default InsertionSort;

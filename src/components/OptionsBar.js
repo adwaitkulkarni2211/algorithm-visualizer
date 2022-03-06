@@ -3,6 +3,7 @@ import MergeSort from "./MergeSort";
 import QuickSort from "./QuickSort";
 import BubbleSort from "./BubbleSort.js";
 import SelectionSort from "./SelectionSort";
+import InsertionSort from "./InsertionSort";
 
 function OptionsBar() {
   const [arr, setArr] = useState([]);
@@ -57,6 +58,7 @@ function OptionsBar() {
       <QuickSort arrayProp={arr}/>
       <BubbleSort arrayProp={arr}/>
       <SelectionSort arrayProp={arr}/>
+      <InsertionSort arrayProp={arr}/>
     </div>
   );
 }

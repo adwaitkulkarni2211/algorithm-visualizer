@@ -4,7 +4,7 @@ function SelectionSort({arrayProp}) {
   const [arr, setArr] = useState([]);
   const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
-  const [sorttedBars, setSortedBars] = useState([]);
+  const [sortedBars, setSortedBars] = useState([]);
 
   useEffect(() => {
     setArr(arrayProp);
@@ -15,7 +15,7 @@ function SelectionSort({arrayProp}) {
   }
 
   const selectionSort = async (arr) => {
-    for(let i=0; i<arr.length; i++) {
+    for(let i=0; i<arr.length - 1; i++) {
         let min = i;
         for(let j=i + 1; j<arr.length; j++) {
             await timeout()
@@ -60,7 +60,7 @@ function SelectionSort({arrayProp}) {
                 margin: `3px`,
                 backgroundColor: activeBars.find((bar) => bar.idx == num.idx)
                   ? "black"
-                  : sorttedBars.find((bar) => bar.idx == num.idx)
+                  : sortedBars.find((bar) => bar.idx == num.idx)
                   ? "green"
                   : "cyan",
               }}
