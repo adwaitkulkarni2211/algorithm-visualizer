@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function QuickSort({arrayProp}) {
-  const [arr, setArr] = useState(arrayProp);
+  const [arr, setArr] = useState([]);
   const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
   const [pivotBar, setPivotBar] = useState({})
