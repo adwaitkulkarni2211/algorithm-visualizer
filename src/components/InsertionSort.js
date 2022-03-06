@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function InsertionSort({ arrayProp }) {
+function InsertionSort({ arrayProp, doSort, setDoSort }) {
   const [arr, setArr] = useState([]);
   const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
@@ -9,6 +9,14 @@ function InsertionSort({ arrayProp }) {
   useEffect(() => {
     setArr(arrayProp);
   }, [arrayProp]);
+
+  useEffect(async () => {
+    if(doSort) {
+      let tempArr = [...arr];
+      await insertionSort(tempArr);
+      setDoSort(false);
+    }
+  }, [doSort])
 
   function timeout() {
     return new Promise((resolve) => setTimeout(resolve, delay));
@@ -43,15 +51,6 @@ function InsertionSort({ arrayProp }) {
 
   return (
     <div className="container">
-      <button
-        className="sort-btn"
-        onClick={async () => {
-          let tempArr = [...arr];
-          await insertionSort(tempArr);
-        }}
-      >
-        Insertion Sort
-      </button>
       <div className="barchart">
         {arr.map((num) => (
           <div key={num.idx}>

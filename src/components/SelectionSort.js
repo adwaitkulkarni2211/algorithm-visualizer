@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function SelectionSort({arrayProp}) {
+function SelectionSort({arrayProp, doSort, setDoSort}) {
   const [arr, setArr] = useState([]);
   const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
@@ -9,6 +9,14 @@ function SelectionSort({arrayProp}) {
   useEffect(() => {
     setArr(arrayProp);
   }, [arrayProp]);
+
+  useEffect(async () => {
+    if(doSort) {
+      let tempArr = [...arr];
+      await selectionSort(tempArr);
+      setDoSort(false);
+    }
+  }, [doSort])
 
   function timeout() {
     return new Promise((resolve) => setTimeout(resolve, delay));
@@ -40,15 +48,6 @@ function SelectionSort({arrayProp}) {
 
   return (
     <div className="container">
-      <button
-        className="sort-btn"
-        onClick={async () => {
-          let tempArr = [...arr];
-          await selectionSort(tempArr);
-        }}
-      >
-        Selection Sort
-      </button>
       <div className="barchart">
         {arr.map((num) => (
           <div key={num.idx}>
