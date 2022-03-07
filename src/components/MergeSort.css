@@ -1,18 +1,54 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
 }
-  
-.barchart {
-  border: 0px solid black;
-  height: 25vh;
-  width: 50vw;
-  margin: 2rem;
+
+#barchart {
+  height: 30vh;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: #555;
 
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+#code-tc {
+  display: flex;
+  justify-content: space-evenly;
+  height: 55.7vh;
+  background-color: #555;
+  padding: 2rem;
+}
+
+#code {
+  text-align: start;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+  margin-right: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#tc {
+  text-align: start;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
   

@@ -96,7 +96,7 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
   
     return (
       <div className="container">
-        <div className="barchart">
+        <div id="barchart">
           {masterArr.map((num) => (
             <div key={num.idx}>
               <div
@@ -111,6 +111,57 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
               </div>
             </div>
           ))}
+        </div>
+        <div id='code-tc'>
+          <div id='code'>
+            <h3>Pseudo Code:</h3>
+            <pre>
+{`mergeSort(arr, left, right):
+  if left > right
+    return
+
+  int mid = (left + right) / 2
+  int arr1 = mergeSort(arr, left, mid)
+  int arr2 = mergeSort(arr, mid + 1, right)
+
+  return mergeTwoSortedLists(arr1, arr2)
+end
+
+mergeTwoSortedLists(arr1, arr2):
+  int i = 0, j = 0, k = 0
+  int mergedArr[arr1.length + arr2.length]
+
+  while(i < arr1.length && j < arr2.length)
+    if(arr2[j] < arr1[i])
+      mergedArr[k] = arr2[j]
+      j++
+    else
+      mergedArr[k] = arr1[i]
+      i++
+    k++
+
+  while(i < arr1.length)
+    mergedArr[k] = arr1[i]
+    i++
+    k++
+
+  while(j < arr2.length)
+    mergedArr[k] = arr2[j]
+    j++
+    k++
+end`}
+            </pre>
+          </div>
+          <div id='tc'>
+            <h3>Time Complexity:</h3>
+            <pre>
+{`Best Case: O(NLogN)
+
+Average Case: O(NLogN)
+
+Worst Case: O(NLogN)`}
+            </pre>
+          </div>
         </div>
       </div>
     );
