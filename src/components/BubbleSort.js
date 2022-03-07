@@ -51,10 +51,10 @@ function BubbleSort({ arrayProp, doSort, setDoSort, timeout }) {
                 width: `2px`,
                 margin: `3px`,
                 backgroundColor: activeBars.find((bar) => bar.idx == num.idx)
-                  ? "black"
+                  ? "white"
                   : sortedBars.find(bar => bar.idx == num.idx)
                   ? "lightgreen"
-                  : "cyan"
+                  : "#6366f1"
               }}
             ></div>
           </div>

@@ -38,9 +38,9 @@ function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
 
       await timeout()
       setArr([...arr]);
-      setActiveBars([])
     }
 
+    setActiveBars([])
     setPivotBar({});
     return j - 1;
   };
@@ -66,7 +66,7 @@ function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
                 height: `${((num.num * 50) / 1000) * 5}px`,
                 width: `2px`,
                 margin: `3px`,
-                backgroundColor: activeBars.find(bar => bar.idx == num.idx) ? "black" : pivotBar.idx == num.idx ? "red" : "cyan"
+                backgroundColor: activeBars.find(bar => bar.idx == num.idx) ? "white" : pivotBar.idx == num.idx ? "red" : "#6366f1"
               }}
             >
             </div>

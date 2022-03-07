@@ -43,7 +43,6 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
   
         tempMasterArr = [...tempMasterArr.slice(0, Math.min.apply(Math, arr1.map(o => o.idx))), ...mergedArr, ...arr1.slice(i), ...arr2.slice(j), ...arr.slice(Math.max.apply(Math, arr2.map(o => o.idx)) + 1)];
         setMasterArr([...tempMasterArr]);
-        setActiveBars([]);
       }
   
       while(i < arr1.length) {
@@ -57,7 +56,6 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
   
         tempMasterArr = [...tempMasterArr.slice(0, Math.min.apply(Math, arr1.map(o => o.idx))), ...mergedArr, ...arr1.slice(i), ...arr.slice(Math.max.apply(Math, arr2.map(o => o.idx)) + 1)]
         setMasterArr([...tempMasterArr]);
-        setActiveBars([])
       }
       while(j < arr2.length) {
         await timeout();
@@ -70,8 +68,9 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
   
         tempMasterArr = [...tempMasterArr.slice(0, Math.min.apply(Math, arr1.map(o => o.idx))), ...mergedArr, ...arr2.slice(j), ...arr.slice(Math.max.apply(Math, arr2.map(o => o.idx)) + 1)]
         setMasterArr([...tempMasterArr]);
-        setActiveBars([])
       }
+
+      setActiveBars([])
   
       return {mergedArr: mergedArr, tempMasterArr: tempMasterArr};
   }
@@ -105,7 +104,7 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
                   height: `${((num.num * 50) / 1000) * 5}px`,
                   width: `2px`,
                   margin: `3px`,
-                  backgroundColor: activeBars.find(bar => bar.idx == num.idx) ? "black" : "cyan",
+                  backgroundColor: activeBars.find(bar => bar.idx == num.idx) ? "white" : "#6366f1",
                 }}
               >
               </div>
