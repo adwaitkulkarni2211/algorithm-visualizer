@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-function QuickSort({arrayProp, doSort, setDoSort}) {
+function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
   const [arr, setArr] = useState([]);
-  const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
   const [pivotBar, setPivotBar] = useState({})
 
@@ -17,10 +16,6 @@ function QuickSort({arrayProp, doSort, setDoSort}) {
       setDoSort(false)
     }
   }, [doSort])
-
-  function timeout() {
-    return new Promise((resolve) => setTimeout(resolve, delay));
-  }
 
   const partition = async (arr, pivot, lo, hi) => {
     setPivotBar(arr[hi]);

@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import "./MergeSort.css"
 
-function MergeSort({arrayProp, doSort, setDoSort}) {
+function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
     const arr = arrayProp;
     const [masterArr, setMasterArr] = useState([]);
-    const [delay, setDelay] = useState(5);
     const [activeBars, setActiveBars] = useState([]);
 
     useEffect(() => {
@@ -18,10 +17,6 @@ function MergeSort({arrayProp, doSort, setDoSort}) {
         setDoSort(false)
       }      
     }, [doSort])
-  
-    function timeout() {
-      return new Promise(resolve => setTimeout(resolve, delay));
-    }
   
     const mergeTwoSortedLists = async (arr1, arr2, tempMasterArr) => {
       let mergedArr = [];
@@ -101,15 +96,6 @@ function MergeSort({arrayProp, doSort, setDoSort}) {
   
     return (
       <div className="container">
-        {/* <button
-          className="sort-btn"
-          onClick={async () => {
-            let tempMasterArr = [...masterArr];
-            const ans = await mergeSort(arr, 0, arr.length - 1, tempMasterArr);
-          }}
-        >
-          Merge Sort
-        </button> */}
         <div className="barchart">
           {masterArr.map((num) => (
             <div key={num.idx}>

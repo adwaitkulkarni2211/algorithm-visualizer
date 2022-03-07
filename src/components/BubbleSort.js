@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-function BubbleSort({ arrayProp, doSort, setDoSort }) {
+function BubbleSort({ arrayProp, doSort, setDoSort, timeout }) {
   const [arr, setArr] = useState([]);
-  const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
   const [sortedBars, setSortedBars] = useState([]);
 
@@ -17,10 +16,6 @@ function BubbleSort({ arrayProp, doSort, setDoSort }) {
       setDoSort(false);
     }
   }, [doSort])
-
-  function timeout() {
-    return new Promise((resolve) => setTimeout(resolve, delay));
-  }
 
   const bubbleSort = async (arr) => {
     for(let i=0; i<arr.length - 1; i++) {

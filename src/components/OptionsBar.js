@@ -11,6 +11,7 @@ function OptionsBar() {
   const [arrSize, setArrSize] = useState(100);
   const [currSort, setCurrSort] = useState(0);
   const [doSort, setDoSort] = useState(false)
+  const [delay, setDelay] = useState(5);
 
   useEffect(() => {
     generateRandomArray();
@@ -30,6 +31,16 @@ function OptionsBar() {
     }
   }
 
+  const handleDelayChange = (value) => {
+    if(value > 1000) {
+        setDelay(1000);
+    } else if(value < 0) {
+        setDelay(0);
+    } else {
+        setDelay(value)
+    }
+  }
+
   const generateRandomArray = () => {
     const tempArr = [];
     for (let i = 0; i < arrSize; i++) {
@@ -40,6 +51,10 @@ function OptionsBar() {
     }
     setArr([...tempArr]);
   };
+
+  function timeout() {
+    return new Promise(resolve => setTimeout(resolve, delay));
+  }
 
   const sortOptions = ["Merge Sort", "Quick Sort", "Bubble Sort", "Selection Sort", "Insertion Sort"]
 
@@ -80,24 +95,39 @@ function OptionsBar() {
             value={arrSize}
             max={120}
             min={1}
-            id="size-input"
+            className="num-input"
             disabled={doSort}
             onChange={(e) => handleSizeChange(e.target.value)} />
+          
+          <div id="delay-container">
+            <input 
+              type="Number" 
+              placeholder="Delay" 
+              value={delay}
+              max={1000}
+              min={1}
+              className="num-input"
+              disabled={doSort}
+              onChange={(e) => handleDelayChange(e.target.value)} />
+              <p style={{paddingLeft: '1rem'}}>ms</p>
+          </div>
 
           <button 
             className="btn" 
             id="sort-btn"
             disabled={doSort}
-            onClick={() => setDoSort(true)}>Sort</button>
+            onClick={() => setDoSort(true)}>
+              Sort
+          </button>
         </div>
       </div>
       <div id="visualizer">
         {
-          currSort == 0 ? <MergeSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort}/>
-          : currSort == 1 ? <QuickSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort}/>
-          : currSort == 2 ? <BubbleSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort}/>
-          : currSort == 3 ? <SelectionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort}/>
-          : currSort == 4 ? <InsertionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort}/> 
+          currSort == 0 ? <MergeSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
+          : currSort == 1 ? <QuickSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
+          : currSort == 2 ? <BubbleSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
+          : currSort == 3 ? <SelectionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
+          : currSort == 4 ? <InsertionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/> 
           : <></>
         }
       </div>

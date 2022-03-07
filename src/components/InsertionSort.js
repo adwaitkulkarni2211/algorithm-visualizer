@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-function InsertionSort({ arrayProp, doSort, setDoSort }) {
+function InsertionSort({ arrayProp, doSort, setDoSort, timeout }) {
   const [arr, setArr] = useState([]);
-  const [delay, setDelay] = useState(5);
   const [activeBars, setActiveBars] = useState([]);
   const [sortedBars, setSortedBars] = useState([]);
 
@@ -17,10 +16,6 @@ function InsertionSort({ arrayProp, doSort, setDoSort }) {
       setDoSort(false);
     }
   }, [doSort])
-
-  function timeout() {
-    return new Promise((resolve) => setTimeout(resolve, delay));
-  }
 
   const insertionSort = async (arr) => {
     await timeout();
