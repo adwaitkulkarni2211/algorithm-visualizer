@@ -22,8 +22,8 @@ function OptionsBar() {
   }, [arrSize])
 
   const handleSizeChange = (value) => {
-    if(value > 120) {
-        setArrSize(120);
+    if(value > 200) {
+        setArrSize(200);
     } else if(value < 0) {
         setArrSize(0);
     } else {
@@ -104,8 +104,8 @@ function OptionsBar() {
               type="Number" 
               placeholder="Delay" 
               value={delay}
-              max={1000}
-              min={1}
+              max={200}
+              min={0}
               className="num-input"
               disabled={doSort}
               onChange={(e) => handleDelayChange(e.target.value)} />

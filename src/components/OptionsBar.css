@@ -57,3 +57,38 @@
     width: 5vw;
     margin-right: 2rem;
 }
+
+@media only screen and (max-width: 1080px) {
+    #nav-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #sort-options {
+        display: flex;
+        justify-content: space-around;
+    }
+    .sort-option {
+        text-align: center;
+    }
+    #chart-options {
+        display: flex;
+        justify-content: space-around;
+    }
+    .num-input {
+        width: 10vw;
+        margin-left: 1rem
+    }
+    #sort-btn {
+        margin-left: 1rem;
+        width: 10vw;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    #random-btn {
+        padding: 0.3rem;
+        width: 13vw;
+    }
+    p {
+        margin-left: 0rem;
+    }
+}

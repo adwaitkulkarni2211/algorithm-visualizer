@@ -4,11 +4,11 @@
   align-content: center;
 }
 
-#barchart {
+#barchart-container {
   height: 30vh;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #555;
+  background-color: #1f2937;
 
   display: flex;
   justify-content: center;
@@ -17,19 +17,22 @@
 
 #code-tc {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   height: 55.7vh;
-  background-color: #555;
+  background-color: #1f2937;
   padding: 2rem;
 }
 
 #code {
   text-align: start;
-  background-color: lightgray;
+  background-color: #374151;
+  color: #d1d5db;
   border-radius: 10px;
   padding-left: 2rem;
   padding-right: 2rem;
-  height: 40vh;
+  margin-bottom: 1rem;
+  height: auto;
   overflow-y: auto;
 }
 ::-webkit-scrollbar {
@@ -47,10 +50,32 @@
 
 #tc {
   text-align: start;
-  background-color: lightgray;
+  background-color: #374151;
+  color: #d1d5db;
   border-radius: 10px;
   padding-left: 2rem;
   padding-right: 2rem;
-  height: 20vh;
+  height: auto;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width:1000px) {
+  #barchart-container {
+    overflow-x: auto;
+  }
+
+  #code {
+    height: 30vh;
+  }
+
+  #tc {
+    height: 20vh;
+  }
+
+  ::-webkit-scrollbar {
+    height: 5px;
+    border-radius: 10px;
+    margin-right: 0.25rem;
+  }
 }
   

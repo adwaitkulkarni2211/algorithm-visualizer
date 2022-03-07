@@ -41,9 +41,9 @@ function BubbleSort({ arrayProp, doSort, setDoSort, timeout }) {
 
   return (
     <div className="container">
-      <div id="barchart">
+      <div id="barchart-container">
         {arr.map((num) => (
-          <div key={num.idx}>
+          <div id='barchart' key={num.idx}>
             <div
               className="bar"
               style={{
