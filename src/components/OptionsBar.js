@@ -5,6 +5,7 @@ import BubbleSort from "./BubbleSort.js";
 import SelectionSort from "./SelectionSort";
 import InsertionSort from "./InsertionSort";
 import "./OptionsBar.css"
+import Slider from 'react-input-slider'
 
 function OptionsBar() {
   const [arr, setArr] = useState([]);
@@ -89,7 +90,7 @@ function OptionsBar() {
             Random Array
           </button>
 
-          <input 
+          {/* <input 
             type="Number" 
             placeholder="Array Size" 
             value={arrSize}
@@ -97,10 +98,27 @@ function OptionsBar() {
             min={1}
             className="num-input"
             disabled={doSort}
-            onChange={(e) => handleSizeChange(e.target.value)} />
+            onChange={(e) => handleSizeChange(e.target.value)} /> */}
+            <div id='arrSize-container'>
+              <Slider 
+                axis="x" 
+                x={arrSize}
+                onChange={(e) => handleSizeChange(e.x)}
+                className="slider"
+                disabled={doSort}
+                xmax={200}
+                xmin={0}
+                xstep={10}
+                styles={{
+                  track: {
+                    width: '5vw'
+                  }
+                }} />
+                <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
+            </div>
           
           <div id="delay-container">
-            <input 
+            {/* <input 
               type="Number" 
               placeholder="Delay" 
               value={delay}
@@ -108,8 +126,22 @@ function OptionsBar() {
               min={0}
               className="num-input"
               disabled={doSort}
-              onChange={(e) => handleDelayChange(e.target.value)} />
-              <p style={{paddingLeft: '1rem'}}>ms</p>
+              onChange={(e) => handleDelayChange(e.target.value)} /> */}
+              <Slider 
+                axis="x" 
+                x={delay}
+                onChange={(e) => handleDelayChange(e.x)}
+                className="slider"
+                disabled={doSort}
+                xmax={500}
+                xmin={0}
+                xstep={5}
+                styles={{
+                  track: {
+                    width: '5vw'
+                  }
+                }} />
+              <p style={{paddingLeft: '1rem'}}>{delay} ms</p>
           </div>
 
           <button 

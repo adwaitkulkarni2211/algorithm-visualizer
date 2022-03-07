@@ -36,17 +36,18 @@
     cursor: pointer;
 }
 
-.num-input {
-    background-color: #374151;
-    border: 0px;
-    border-radius: 5px;
-    color: white;
-    width: 5vw;
-    height: 5vh;
-    text-align: center;
+.btn:disabled {
+    opacity: 50%;
 }
 
 #delay-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+}
+
+#arrSize-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -72,23 +73,26 @@
     }
     #chart-options {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
-    .num-input {
-        width: 10vw;
-        margin-left: 1rem
+    #delay-container {
+        margin: 0.5rem
+    }
+    #arrSize-container {
+        margin: 0.5rem
     }
     #sort-btn {
-        margin-left: 1rem;
         width: 10vw;
         padding-left: 1rem;
         padding-right: 1rem;
     }
     #random-btn {
         padding: 0.3rem;
+        overflow: hidden;
+        margin-right: 0.5rem;
         width: 13vw;
     }
     p {
-        margin-left: 0rem;
+        display: none;
     }
 }

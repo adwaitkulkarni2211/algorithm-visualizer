@@ -102,11 +102,23 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
                 className="bar"
                 style={{
                   height: `${((num.num * 50) / 1000) * 5}px`,
-                  width: `2px`,
+                  width: masterArr.length < 21 ? `50px` 
+                        : masterArr.length < 70 ? `20px` 
+                        : masterArr.length < 116 ? `10px` : `2px`,
                   margin: `3px`,
+                  padding: masterArr.length < 21 ? `1rem` : `0rem`,
                   backgroundColor: activeBars.find(bar => bar.idx == num.idx) ? "white" : "#6366f1",
                 }}
               >
+                <div
+                  style={{
+                    display: masterArr.length < 21 ? 'flex' : 'none', 
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    color: '#d1d5db'
+                  }}>
+                  {num.num}
+                </div>
               </div>
             </div>
           ))}
