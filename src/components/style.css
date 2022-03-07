@@ -29,6 +29,7 @@
   border-radius: 10px;
   padding-left: 2rem;
   padding-right: 2rem;
+  height: 40vh;
   overflow-y: auto;
 }
 ::-webkit-scrollbar {
@@ -50,5 +51,6 @@
   border-radius: 10px;
   padding-left: 2rem;
   padding-right: 2rem;
+  height: 20vh;
 }
   

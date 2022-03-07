@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import "./MergeSort.css"
+import "./style.css"
 
 function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
     const arr = arrayProp;
@@ -117,7 +117,7 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
             <h3>Pseudo Code:</h3>
             <pre>
 {`mergeSort(arr, left, right):
-  if left > right
+  if (left > right)
     return
 
   int mid = (left + right) / 2

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css"
 
 function InsertionSort({ arrayProp, doSort, setDoSort, timeout }) {
   const [arr, setArr] = useState([]);
@@ -46,7 +47,7 @@ function InsertionSort({ arrayProp, doSort, setDoSort, timeout }) {
 
   return (
     <div className="container">
-      <div className="barchart">
+      <div id="barchart">
         {arr.map((num) => (
           <div key={num.idx}>
             <div
@@ -64,6 +65,31 @@ function InsertionSort({ arrayProp, doSort, setDoSort, timeout }) {
             ></div>
           </div>
         ))}
+      </div>
+      <div id='code-tc'>
+          <div id='code'>
+            <h3>Pseudo Code:</h3>
+            <pre>
+{`insertionSort(arr):
+  for(int i = 1; i < arr.length - 1; i++)
+    for(int j = i - 1; j >= 0; j--)
+      if(arr[j] > arr[j + 1])
+        swap(arr[i][j])
+      else
+        break
+end`}
+            </pre>
+          </div>
+          <div id='tc'>
+            <h3>Time Complexity:</h3>
+            <pre>
+{`Best Case: O(N^2)
+
+Average Case: O(N^2)
+
+Worst Case: O(N^2)`}
+            </pre>
+          </div>
       </div>
     </div>
   );

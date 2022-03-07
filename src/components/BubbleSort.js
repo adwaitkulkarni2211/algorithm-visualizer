@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css"
 
 function BubbleSort({ arrayProp, doSort, setDoSort, timeout }) {
   const [arr, setArr] = useState([]);
@@ -40,7 +41,7 @@ function BubbleSort({ arrayProp, doSort, setDoSort, timeout }) {
 
   return (
     <div className="container">
-      <div className="barchart">
+      <div id="barchart">
         {arr.map((num) => (
           <div key={num.idx}>
             <div
@@ -58,6 +59,29 @@ function BubbleSort({ arrayProp, doSort, setDoSort, timeout }) {
             ></div>
           </div>
         ))}
+      </div>
+      <div id='code-tc'>
+          <div id='code'>
+            <h3>Pseudo Code:</h3>
+            <pre>
+{`bubbleSort(arr):
+  for(int i = 0; i < arr.length - 1; i++)
+    for(int j = 0; j < arr.length - 1 - i; j++)
+      if(arr[j] > arr[j + 1])
+        swap(arr[i], arr[j])
+end`}
+            </pre>
+          </div>
+          <div id='tc'>
+            <h3>Time Complexity:</h3>
+            <pre>
+{`Best Case: O(N^2)
+
+Average Case: O(N^2)
+
+Worst Case: O(N^2)`}
+            </pre>
+          </div>
       </div>
     </div>
   );

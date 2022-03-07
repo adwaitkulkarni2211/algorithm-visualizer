@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css"
 
 function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
   const [arr, setArr] = useState([]);
@@ -56,16 +57,7 @@ function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
 
   return (
     <div className="container">
-      {/* <button
-        className="sort-btn"
-        onClick={async () => {
-          let tempArr = [...arr];
-          await quickSort(tempArr, 0, tempArr.length - 1)
-        }}
-      >
-        Quick Sort
-      </button> */}
-      <div className="barchart">
+      <div id="barchart">
         {arr.map((num) => (
           <div key={num.idx}>
             <div
@@ -80,6 +72,44 @@ function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
             </div>
           </div>
         ))}
+      </div>
+      <div id='code-tc'>
+          <div id='code'>
+            <h3>Pseudo Code:</h3>
+            <pre>
+{`quickSort(arr, left, right):
+  if(left >= right)
+    return
+  
+  int pivot = partition(arr, arr[right], left, right)
+  
+  quickSort(arr, left, pivot - 1)
+  quickSort(arr, pivot + 1, right)
+end
+  
+partition(arr, pivotNum, left, right):
+  int i = left, j = left
+  
+  while(i < right)
+    if(arr[i] > pivotNum)
+      i++
+    else
+      swap(arr[i], arr[j])
+      i++
+      j++
+end`}
+            </pre>
+          </div>
+          <div id='tc'>
+            <h3>Time Complexity:</h3>
+            <pre>
+{`Best Case: O(NLogN)
+
+Average Case: O(NLogN)
+
+Worst Case: O(N^2)`}
+            </pre>
+          </div>
       </div>
     </div>
   );
