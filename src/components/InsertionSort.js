@@ -96,7 +96,7 @@ end`}
           <div id='tc'>
             <h3>Time Complexity:</h3>
             <pre>
-{`Best Case: O(N^2)
+{`Best Case: O(N)
 
 Average Case: O(N^2)
 

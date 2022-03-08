@@ -87,7 +87,7 @@ function OptionsBar() {
             className="btn"
             id="random-btn"
             disabled={doSort}>
-            Random Array
+            Random
           </button>
 
           {/* <input 
@@ -111,7 +111,11 @@ function OptionsBar() {
                 xstep={10}
                 styles={{
                   track: {
-                    width: '5vw'
+                    width: '10vw'
+                  },
+                  thumb: {
+                    width: '15px',
+                    height: '15px'
                   }
                 }} />
                 <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
@@ -138,7 +142,11 @@ function OptionsBar() {
                 xstep={5}
                 styles={{
                   track: {
-                    width: '5vw'
+                    width: '10vw'
+                  },
+                  thumb: {
+                    width: '15px',
+                    height: '15px'
                   }
                 }} />
               <p style={{paddingLeft: '1rem'}}>{delay} ms</p>

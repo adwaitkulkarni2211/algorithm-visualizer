@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  background-color: #1f2937;
 }
 
 #barchart-container {
-  height: 30vh;
   padding-left: 1rem;
   padding-right: 1rem;
   background-color: #1f2937;
@@ -13,13 +13,13 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  overflow-x: auto;
 }
 
 #code-tc {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 55.7vh;
+  justify-content: space-around;
   background-color: #1f2937;
   padding: 2rem;
 }
@@ -32,13 +32,24 @@
   padding-left: 2rem;
   padding-right: 2rem;
   margin-bottom: 1rem;
-  height: auto;
-  overflow-y: auto;
+  font-size: 1rem;
+}
+#tc {
+  text-align: start;
+  background-color: #374151;
+  color: #d1d5db;
+  border-radius: 10px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0.25rem;
+  height: 0.25rem;
   border-radius: 10px;
   margin-right: 0.25rem;
+  background-color: #1f2937;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -48,34 +59,66 @@
   background: #555;
 }
 
-#tc {
-  text-align: start;
-  background-color: #374151;
-  color: #d1d5db;
-  border-radius: 10px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  height: auto;
-  overflow-y: auto;
-}
-
-@media only screen and (max-width:1000px) and (max-height: 1500px) {
+@media only screen and (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: #1f2937;
+  }
+  
   #barchart-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #1f2937;
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     overflow-x: auto;
-    overflow-y: auto;
   }
-
+  
+  #code-tc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #1f2937;
+    padding: 2rem;
+    overflow-y: auto
+  }
+  
   #code {
-    height: 30vh;
+    text-align: start;
+    background-color: #374151;
+    color: #d1d5db;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 1rem;
+    font-size: 0.67rem;
   }
-
   #tc {
-    height: 20vh;
+    text-align: start;
+    background-color: #374151;
+    color: #d1d5db;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 1rem;
+    font-size: 0.67rem;
   }
-
   ::-webkit-scrollbar {
-    height: 5px;
+    width: 0.25rem;
+    height: 0.25rem;
     border-radius: 10px;
     margin-right: 0.25rem;
+    background-color: #1f2937;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }

@@ -90,19 +90,19 @@ function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
             <h3>Pseudo Code:</h3>
             <pre>
 {`quickSort(arr, left, right):
-  if(left >= right)
+  if(lo >= hi)
     return
   
-  int pivot = partition(arr, arr[right], left, right)
+  int pivot = partition(arr, arr[hi], lo, hi)
   
-  quickSort(arr, left, pivot - 1)
-  quickSort(arr, pivot + 1, right)
+  quickSort(arr, lo, pivot - 1)
+  quickSort(arr, pivot + 1, hi)
 end
   
-partition(arr, pivotNum, left, right):
-  int i = left, j = left
+partition(arr, pivotNum, lo, hi):
+  int i = lo, j = lo
   
-  while(i < right)
+  while(i < hi)
     if(arr[i] > pivotNum)
       i++
     else

@@ -1,97 +1,354 @@
-#nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: #1f2937;
+@media only screen and (max-width: 2000px) and (min-width: 1048px) {
+    #nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        background-color: #1f2937;
+        height: 5vh;
+        padding: 1rem;
+    }
+    
+    #sort-options {
+        display: flex;
+        width: 50vw;
+        color: white;
+        font-size: 1rem;
+    }
+    
+    .sort-option {
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #chart-options {
+        width: 50vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .btn {
+        background-color: #6366f1;
+        border: 0px;
+        height: 2.5rem;
+        width: 5rem;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #random-btn {
+        font-size: 1rem;
+    }
+    
+    #sort-btn {
+        font-size: 1rem;
+    }
+    
+    .btn:disabled {
+        opacity: 50%;
+    }
+    
+    #delay-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    #arrSize-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
 }
 
-#sort-options {
-    display: flex;
-    width: 50vw;
-    color: white;
-}
+@media only screen and (min-width: 834px) and (max-width: 1048px) {
+    #nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        background-color: #1f2937;
+        height: 5vh;
+        padding: 1rem;
+    }
+    
+    #sort-options {
+        display: flex;
+        width: 50vw;
+        color: white;
+        font-size: 0.75rem;
+    }
+    
+    .sort-option {
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #chart-options {
+        width: 50vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .btn {
+        background-color: #6366f1;
+        border: 0px;
+        height: 2rem;
+        width: 5rem;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
 
-.sort-option {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
+    #random-btn {
+        font-size: 0.7rem;
+    }
+    
+    #sort-btn {
+        font-size: 0.7rem;
+    }
+    
+    .btn:disabled {
+        opacity: 50%;
+    }
+    
+    #delay-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    #arrSize-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    p {
+        display: none;
+    }
 }
+@media only screen and (max-width: 834px) and (min-width: 791px) {
+    #nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        background-color: #1f2937;
+        height: 5vh;
+        padding: 1rem;
+    }
+    
+    #sort-options {
+        display: flex;
+        width: 50vw;
+        color: white;
+        font-size: 0.7rem;
+    }
+    
+    .sort-option {
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #chart-options {
+        width: 50vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .btn {
+        background-color: #6366f1;
+        border: 0px;
+        height: 1.8rem;
+        width: 4.5rem;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .btn:disabled {
+        opacity: 50%;
+    }
 
-#chart-options {
-    width: 50vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    #random-btn {
+        font-size: 0.7rem;
+    }
+    
+    #sort-btn {
+        font-size: 0.7rem;
+    }
+    
+    #delay-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    #arrSize-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    p {
+        display: none;
+    }
 }
-
-.btn {
-    background-color: #6366f1;
-    border: 0px;
-    padding: 0.5rem;
-    height: 5vh;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-.btn:disabled {
-    opacity: 50%;
-}
-
-#delay-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
-}
-
-#arrSize-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
-}
-
-#sort-btn {
-    width: 5vw;
-    margin-right: 2rem;
-}
-
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 791px) and (min-width: 750px) {
     #nav-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        background-color: #1f2937;
+        height: 10vh;
+        padding: 1rem;
     }
+    
     #sort-options {
         display: flex;
-        justify-content: space-around;
+        width: 50vw;
+        color: white;
+        font-size: 0.69rem;
+        margin-bottom: 1rem;
     }
+    
     .sort-option {
-        text-align: center;
-    }
-    #chart-options {
-        display: flex;
-        justify-content: space-between;
-    }
-    #delay-container {
-        margin: 0.5rem
-    }
-    #arrSize-container {
-        margin: 0.5rem
-    }
-    #sort-btn {
-        width: 10vw;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    #random-btn {
-        padding: 0.3rem;
-        overflow: hidden;
         margin-right: 0.5rem;
-        width: 13vw;
+        padding: 0.25rem;
+        border-radius: 5px;
+        cursor: pointer;
     }
+    
+    #chart-options {
+        width: 50vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .btn {
+        background-color: #6366f1;
+        border: 0px;
+        height: 1.8rem;
+        width: 4.5rem;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .btn:disabled {
+        opacity: 50%;
+    }
+
+    #random-btn {
+        font-size: 0.69rem;
+    }
+    
+    #sort-btn {
+        font-size: 0.69rem;
+    }
+    
+    #delay-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    #arrSize-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+    }
+    
+    p {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #nav-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1f2937;
+        height: 9vh;
+        padding: 1rem;
+        padding-top: 0.2rem;
+    }
+    
+    #sort-options {
+        display: flex;
+        width: 50vw;
+        color: white;
+        font-size: 0.6rem;
+        margin-bottom: 1rem;
+    }
+    
+    .sort-option {
+        margin-right: 0.5rem;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #chart-options {
+        width: 50vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .btn {
+        background-color: #6366f1;
+        border: 0px;
+        height: 1.5rem;
+        width: 3.5rem;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .btn:disabled {
+        opacity: 50%;
+    }
+
+    #random-btn {
+        font-size: 0.6rem;
+    }
+    
+    #sort-btn {
+        font-size: 0.6rem;
+    }
+
+    #arrSize-container {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    
+    #delay-container {
+        margin-right: 1rem;
+    }
+    
     p {
         display: none;
     }
