@@ -65,6 +65,7 @@ function OptionsBar() {
         <div id="sort-options">
           {sortOptions.map((so, idx) => (
             <div 
+              key={idx}
               className="sort-option"
               onClick={() => {
                 if(!doSort)
@@ -89,66 +90,47 @@ function OptionsBar() {
             disabled={doSort}>
             Random
           </button>
-
-          {/* <input 
-            type="Number" 
-            placeholder="Array Size" 
-            value={arrSize}
-            max={120}
-            min={1}
-            className="num-input"
-            disabled={doSort}
-            onChange={(e) => handleSizeChange(e.target.value)} /> */}
-            <div id='arrSize-container'>
-              <Slider 
-                axis="x" 
-                x={arrSize}
-                onChange={(e) => handleSizeChange(e.x)}
-                className="slider"
-                disabled={doSort}
-                xmax={200}
-                xmin={0}
-                xstep={10}
-                styles={{
-                  track: {
-                    width: '10vw'
-                  },
-                  thumb: {
-                    width: '15px',
-                    height: '15px'
-                  }
-                }} />
-                <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
-            </div>
+          <div id='arrSize-container'>
+            <Slider 
+              axis="x" 
+              x={arrSize}
+              onChange={(e) => handleSizeChange(e.x)}
+              className="slider"
+              disabled={doSort}
+              xmax={200}
+              xmin={0}
+              xstep={10}
+              styles={{
+                track: {
+                  width: '10vw'
+                },
+                thumb: {
+                  width: '15px',
+                  height: '15px'
+                }
+              }} />
+              <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
+          </div>
           
           <div id="delay-container">
-            {/* <input 
-              type="Number" 
-              placeholder="Delay" 
-              value={delay}
-              max={200}
-              min={0}
-              className="num-input"
+            <Slider 
+              axis="x" 
+              x={delay}
+              onChange={(e) => handleDelayChange(e.x)}
+              className="slider"
               disabled={doSort}
-              onChange={(e) => handleDelayChange(e.target.value)} /> */}
-              <Slider 
-                axis="x" 
-                x={delay}
-                onChange={(e) => handleDelayChange(e.x)}
-                className="slider"
-                disabled={doSort}
-                xmax={500}
-                xmin={0}
-                xstep={5}
-                styles={{
-                  track: {
-                    width: '10vw'
-                  },
-                  thumb: {
-                    width: '15px',
-                    height: '15px'
-                  }
-                }} />
+              xmax={500}
+              xmin={0}
+              xstep={5}
+              styles={{
+                track: {
+                  width: '10vw'
+                },
+                thumb: {
+                  width: '15px',
+                  height: '15px'
+                }
+              }} />
               <p style={{paddingLeft: '1rem'}}>{delay} ms</p>
           </div>
 

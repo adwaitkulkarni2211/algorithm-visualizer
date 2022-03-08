@@ -1,9 +1,10 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
 
-function Barchart({arr, activeBars, pivotBar, sortedBars}) {
+function Barchart({ arr, activeBars, pivotBar, sortedBars }) {
   return (
-    <div id="barchart-container">
+    <div 
+      id="barchart-container">
       {arr.map((num) => (
         <div id="barchart" key={num.idx}>
           <div
@@ -22,7 +23,8 @@ function Barchart({arr, activeBars, pivotBar, sortedBars}) {
               padding: arr.length < 21 ? `1rem` : `0rem`,
               backgroundColor: activeBars.find((bar) => bar.idx == num.idx)
                 ? "white"
-                : pivotBar.idx == num.idx ? "red" 
+                : pivotBar.idx == num.idx
+                ? "red"
                 : sortedBars.find((bar) => bar.idx == num.idx)
                 ? "lightgreen"
                 : "#6366f1",

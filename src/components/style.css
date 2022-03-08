@@ -73,7 +73,7 @@
     background-color: #1f2937;
   
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     overflow-x: auto;
   }
