@@ -2,34 +2,33 @@ import React from "react";
 import "./style.css";
 
 function Barchart({ arr, activeBars, pivotBar, sortedBars }) {
-  
   let currWidth, currMargin;
-  if(arr.length < 11) {
+  if (arr.length < 11) {
     currWidth = "3rem";
     currMargin = "1rem";
-  } else if(arr.length < 21) {
+  } else if (arr.length < 21) {
     currWidth = "1rem";
     currMargin = "0.5rem";
-  } else if (arr.length < 31){
+  } else if (arr.length < 31) {
     currWidth = "2rem";
     currMargin = "0.5rem";
-  } else if(arr.length < 51) {
+  } else if (arr.length < 51) {
     currWidth = "1rem";
     currMargin = "0.4rem";
-  } else if(arr.length < 71) {
+  } else if (arr.length < 71) {
     currWidth = "0.7rem";
     currMargin = "0.3rem";
-  } else if(arr.length < 91) {
+  } else if (arr.length < 91) {
     currWidth = "0.6rem";
     currMargin = "0.2rem";
-  } else if(arr.length < 121) {
+  } else if (arr.length < 121) {
     currWidth = "0.5rem";
     currMargin = "0.1rem";
-  } else if(arr.length < 151) {
+  } else if (arr.length < 151) {
     currWidth = "0.4rem";
     currMargin = "0.1rem";
-  } else if(arr.length < 181) {
-    currWidth = "0.3rem"; 
+  } else if (arr.length < 181) {
+    currWidth = "0.3rem";
     currMargin = "0.1rem";
   } else {
     currWidth = "0.25rem";
@@ -61,7 +60,12 @@ function Barchart({ arr, activeBars, pivotBar, sortedBars }) {
                 display: arr.length < 21 ? "flex" : "none",
                 justifyContent: "center",
                 alignItems: "center",
-                color: "#d1d5db",
+                color:
+                  sortedBars.find((bar) => bar.idx == num.idx) ||
+                  activeBars.find((bar) => bar.idx == num.idx) ||
+                  pivotBar.idx == num.idx
+                    ? "black"
+                    : "#d1d5db",
               }}
             >
               {num.num}
