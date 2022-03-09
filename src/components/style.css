@@ -6,8 +6,10 @@
 }
 
 #barchart-container {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   background-color: #1f2937;
 
   display: flex;
@@ -59,7 +61,7 @@
   background: #555;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -68,8 +70,11 @@
   }
   
   #barchart-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
     background-color: #1f2937;
   
     display: flex;
