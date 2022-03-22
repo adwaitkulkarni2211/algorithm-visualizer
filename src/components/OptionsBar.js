@@ -4,6 +4,7 @@ import QuickSort from "./QuickSort";
 import BubbleSort from "./BubbleSort.js";
 import SelectionSort from "./SelectionSort";
 import InsertionSort from "./InsertionSort";
+import HeapSort from "./HeapSort";
 import "./OptionsBar.css"
 import Slider from 'react-input-slider'
 
@@ -57,14 +58,14 @@ function OptionsBar() {
     return new Promise(resolve => setTimeout(resolve, delay));
   }
 
-  const sortOptions = ["Merge Sort", "Quick Sort", "Bubble Sort", "Selection Sort", "Insertion Sort"]
+  const sortOptions = ["Merge Sort", "Quick Sort", "Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort"]
 
   return (
     <div>
       <div id="nav-container">
         <div id="sort-options">
           {sortOptions.map((so, idx) => (
-            <div 
+            <div
               key={idx}
               className="sort-option"
               onClick={() => {
@@ -91,8 +92,8 @@ function OptionsBar() {
             Random
           </button>
           <div id='arrSize-container'>
-            <Slider 
-              axis="x" 
+            <Slider
+              axis="x"
               x={arrSize}
               onChange={(e) => handleSizeChange(e.x)}
               className="slider"
@@ -111,10 +112,10 @@ function OptionsBar() {
               }} />
               <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
           </div>
-          
+         
           <div id="delay-container">
-            <Slider 
-              axis="x" 
+            <Slider
+              axis="x"
               x={delay}
               onChange={(e) => handleDelayChange(e.x)}
               className="slider"
@@ -134,8 +135,8 @@ function OptionsBar() {
               <p style={{paddingLeft: '1rem'}}>{delay} ms</p>
           </div>
 
-          <button 
-            className="btn" 
+          <button
+            className="btn"
             id="sort-btn"
             disabled={doSort}
             onClick={() => setDoSort(true)}>
@@ -149,7 +150,8 @@ function OptionsBar() {
           : currSort == 1 ? <QuickSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
           : currSort == 2 ? <BubbleSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
           : currSort == 3 ? <SelectionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
-          : currSort == 4 ? <InsertionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/> 
+          : currSort == 4 ? <InsertionSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
+          : currSort == 5 ? <HeapSort arrayProp={arr} doSort={doSort} setDoSort={setDoSort} timeout={timeout}/>
           : <></>
         }
       </div>
