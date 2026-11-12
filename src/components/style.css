@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  background-color: #1f2937;
 }
 
 #barchart-container {
@@ -10,7 +9,6 @@
   margin-right: 3rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  background-color: #1f2937;
 
   display: flex;
   justify-content: center;
@@ -22,20 +20,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #1f2937;
   padding: 2rem;
 }
 
-#code {
-  text-align: start;
-  background-color: #374151;
-  color: #d1d5db;
-  border-radius: 10px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
+#code,
 #tc {
   text-align: start;
   background-color: #374151;
@@ -46,6 +34,7 @@
   margin-bottom: 1rem;
   font-size: 1rem;
 }
+
 ::-webkit-scrollbar {
   width: 0.25rem;
   height: 0.25rem;
@@ -57,73 +46,22 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
 @media only screen and (max-width: 1200px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    background-color: #1f2937;
-  }
-  
   #barchart-container {
-    margin-left: 3rem;
-    margin-right: 3rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    
-    background-color: #1f2937;
-  
-    display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
-    overflow-x: auto;
   }
-  
+
   #code-tc {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: #1f2937;
-    padding: 2rem;
-    overflow-y: auto
+    overflow-y: auto;
   }
-  
-  #code {
-    text-align: start;
-    background-color: #374151;
-    color: #d1d5db;
-    border-radius: 10px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-bottom: 1rem;
-    font-size: 0.67rem;
-  }
+
+  #code,
   #tc {
-    text-align: start;
-    background-color: #374151;
-    color: #d1d5db;
-    border-radius: 10px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-bottom: 1rem;
     font-size: 0.67rem;
-  }
-  ::-webkit-scrollbar {
-    width: 0.25rem;
-    height: 0.25rem;
-    border-radius: 10px;
-    margin-right: 0.25rem;
-    background-color: #1f2937;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
   }
 }
