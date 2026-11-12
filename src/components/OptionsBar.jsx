@@ -104,7 +104,7 @@ function OptionsBar() {
               min="0"
               step="10"
             />
-              <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
+              <p className="slider-value">{arrSize}</p>
           </div>
           
           <div id="delay-container">
@@ -122,7 +122,7 @@ function OptionsBar() {
               min="0"
               step="5"
             />
-              <p style={{paddingLeft: '1rem'}}>{delay} ms</p>
+              <p className="slider-value">{delay} ms</p>
           </div>
 
           <button 
