@@ -11,11 +11,14 @@ function MergeSort({arrayProp, doSort, setDoSort, timeout}) {
         setMasterArr(arrayProp)
     }, [arrayProp])
 
-    useEffect(async () => {
+    useEffect(() => {
       if(doSort) {
-        let tempMasterArr = [...masterArr];
-        const ans = await mergeSort(arr, 0, arr.length - 1, tempMasterArr);
-        setDoSort(false)
+        const runSort = async () => {
+          let tempMasterArr = [...masterArr];
+          await mergeSort(arr, 0, arr.length - 1, tempMasterArr);
+          setDoSort(false);
+        };
+        runSort();
       }      
     }, [doSort])
   

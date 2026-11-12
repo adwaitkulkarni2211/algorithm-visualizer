@@ -11,11 +11,14 @@ function SelectionSort({arrayProp, doSort, setDoSort, timeout}) {
     setArr(arrayProp);
   }, [arrayProp]);
 
-  useEffect(async () => {
+  useEffect(() => {
     if(doSort) {
-      let tempArr = [...arr];
-      await selectionSort(tempArr);
-      setDoSort(false);
+      const runSort = async () => {
+        let tempArr = [...arr];
+        await selectionSort(tempArr);
+        setDoSort(false);
+      };
+      runSort();
     }
   }, [doSort])
 

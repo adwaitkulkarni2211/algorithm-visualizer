@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import MergeSort from "./MergeSort";
 import QuickSort from "./QuickSort";
-import BubbleSort from "./BubbleSort.js";
+import BubbleSort from "./BubbleSort";
 import SelectionSort from "./SelectionSort";
 import InsertionSort from "./InsertionSort";
 import "./OptionsBar.css"
-import Slider from 'react-input-slider'
 
 function OptionsBar() {
   const [arr, setArr] = useState([]);
@@ -91,46 +90,38 @@ function OptionsBar() {
             Random
           </button>
           <div id='arrSize-container'>
-            <Slider 
-              axis="x" 
-              x={arrSize}
-              onChange={(e) => handleSizeChange(e.x)}
+            <label className="slider-label" htmlFor="array-size">
+              Array size
+            </label>
+            <input
+              id="array-size"
+              type="range"
+              value={arrSize}
+              onChange={(event) => handleSizeChange(Number(event.target.value))}
               className="slider"
               disabled={doSort}
-              xmax={200}
-              xmin={0}
-              xstep={10}
-              styles={{
-                track: {
-                  width: '10vw'
-                },
-                thumb: {
-                  width: '15px',
-                  height: '15px'
-                }
-              }} />
+              max="200"
+              min="0"
+              step="10"
+            />
               <p style={{paddingLeft: '1rem'}}>{arrSize}</p>
           </div>
           
           <div id="delay-container">
-            <Slider 
-              axis="x" 
-              x={delay}
-              onChange={(e) => handleDelayChange(e.x)}
+            <label className="slider-label" htmlFor="animation-delay">
+              Animation delay
+            </label>
+            <input
+              id="animation-delay"
+              type="range"
+              value={delay}
+              onChange={(event) => handleDelayChange(Number(event.target.value))}
               className="slider"
               disabled={doSort}
-              xmax={500}
-              xmin={0}
-              xstep={5}
-              styles={{
-                track: {
-                  width: '10vw'
-                },
-                thumb: {
-                  width: '15px',
-                  height: '15px'
-                }
-              }} />
+              max="500"
+              min="0"
+              step="5"
+            />
               <p style={{paddingLeft: '1rem'}}>{delay} ms</p>
           </div>
 

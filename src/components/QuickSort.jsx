@@ -11,11 +11,14 @@ function QuickSort({arrayProp, doSort, setDoSort, timeout}) {
     setArr(arrayProp)
   }, [arrayProp])
 
-  useEffect(async () => {
+  useEffect(() => {
     if(doSort) {
-      let tempArr = [...arr];
-      await quickSort(tempArr, 0, tempArr.length - 1)
-      setDoSort(false)
+      const runSort = async () => {
+        let tempArr = [...arr];
+        await quickSort(tempArr, 0, tempArr.length - 1);
+        setDoSort(false);
+      };
+      runSort();
     }
   }, [doSort])
 
