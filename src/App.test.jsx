@@ -35,8 +35,10 @@ test('responsive CSS rules meet layout specifications', () => {
   expect(optionsBarCss).toContain('@media (min-width: 60rem)');
 
   // Merged selectors
-  expect(optionsBarCss).toContain('#delay-container,\n#arrSize-container');
-  expect(styleCss).toContain('#code,\n#tc');
+  const normOptionsBarCss = optionsBarCss.replace(/\r\n/g, '\n');
+  const normStyleCss = styleCss.replace(/\r\n/g, '\n');
+  expect(normOptionsBarCss).toContain('#delay-container,\n#arrSize-container');
+  expect(normStyleCss).toContain('#code,\n#tc');
 
   // Exactly one webkit-scrollbar rule (none inside media query)
   const scrollbarMatches = styleCss.match(/::-webkit-scrollbar(?![-\w])/g);

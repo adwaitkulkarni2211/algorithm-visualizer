@@ -89,8 +89,40 @@ All algorithms sort ascending by `num`. Sorter state and working arrays are loca
 | `src/App.test.jsx`, `src/setupTests.js` | Vitest render and sorter-completion checks plus matcher setup. |
 | `index.html` | Vite HTML entry shell. |
 | `public/` | Manifest, icons, and robots file. |
+| `Dockerfile`, `nginx.conf`, `.dockerignore` | Multi-stage containerization build and Nginx SPA routing. |
+| `terraform/` | Terraform infrastructure managing GCP APIs, Artifact Registry, Cloud Run v2, and IAM. |
+| `.github/workflows/deploy.yml` | GitHub Actions automated test, build, and Cloud Run deployment pipeline. |
 | `openspec/`, `.agents/skills/` | OpenSpec configuration and repository-local OpenSpec workflow skills. |
 | `README.md` | Setup requirements and Vite/Vitest command reference. |
+
+## Cloud Hosting and CI/CD Architecture
+
+### Hosting Topology (Google Cloud Run)
+The application is containerized and hosted on Google Cloud Platform (GCP) in region `asia-south1` (Mumbai) using Cloud Run v2.
+- **Compute**: Cloud Run v2 (`algorithm-visualizer`) runs a lightweight Nginx container serving the static Vite build output from `/usr/share/nginx/html`.
+- **Scale to Zero**: Scaled between 0 and 5 instances with `INGRESS_TRAFFIC_ALL` enabled. When idle, the service scales to 0 instances incurring zero compute charges.
+- **Networking**: Cloud Run terminates managed HTTPS with automatic SSL certificates and forwards incoming traffic to container port 8080.
+- **Routing**: `nginx.conf` routes unmatched client requests via `try_files $uri $uri/ /index.html` to support client-side Single Page Application behaviors and sets 1-year cache headers for immutable static assets.
+
+### Infrastructure as Code (Terraform)
+All GCP resources are declared and version-controlled under `terraform/`:
+- **State Backend**: Remote state is stored in a dedicated Google Cloud Storage bucket `gs://algorithm-visualizer-adwait-tfstate` with state prefix `terraform/state`.
+- **Managed Resources**:
+  - GCP Service APIs: `run.googleapis.com`, `artifactregistry.googleapis.com`, `cloudbuild.googleapis.com`.
+  - Artifact Registry Docker repository: `algorithm-visualizer-repo` in `asia-south1`.
+  - Cloud Run v2 service: `algorithm-visualizer` with 512Mi memory and 1 vCPU limits.
+  - IAM Member: `allUsers` granted `roles/run.invoker` for unauthenticated public web access.
+
+### CI/CD Pipeline (GitHub Actions)
+Continuous deployment is automated via `.github/workflows/deploy.yml`:
+- **Trigger**: Pushes and merged pull requests to the `main` branch.
+- **Jobs**:
+  1. Checks out repository and installs Node.js 22.
+  2. Runs automated tests (`npm test`).
+  3. Authenticates to GCP using a dedicated Service Account (`github-deployer`) via secret `GCP_SA_KEY`.
+  4. Configures Docker credentials for `asia-south1-docker.pkg.dev`.
+  5. Builds and tags multi-stage Docker container with `${{ github.sha }}` and `latest`.
+  6. Pushes image to Artifact Registry and updates the Cloud Run revision.
 
 ## Current limitations and implementation notes
 
