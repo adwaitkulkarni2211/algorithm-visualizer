@@ -1,0 +1,69 @@
+name: Build and Deploy to GCP Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PROJECT_ID: algorithm-visualizer-adwait
+  REGION: asia-south1
+  SERVICE_NAME: algorithm-visualizer
+  REPOSITORY_NAME: algorithm-visualizer-repo
+  IMAGE_NAME: algorithm-visualizer
+
+jobs:
+  build-and-deploy:
+    name: Test, Build & Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Test Suite
+        run: npm test
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker Authentication for Artifact Registry
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build and Push Docker Container
+        run: |
+          REGISTRY_PATH="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}"
+          docker build -t "${REGISTRY_PATH}:${{ github.sha }}" -t "${REGISTRY_PATH}:latest" .
+          docker push "${REGISTRY_PATH}:${{ github.sha }}"
+          docker push "${REGISTRY_PATH}:latest"
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.REGION }}
+          image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY_NAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Deployment Summary
+        run: |
+          echo "Application deployed to Cloud Run at: ${{ steps.deploy.outputs.url }}"

@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.github
+.agents
+openspec
+terraform
+*.tfstate*
+*.tfvars
+*.md
+.DS_Store
+Thumbs.db
