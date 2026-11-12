@@ -11,11 +11,14 @@ function InsertionSort({ arrayProp, doSort, setDoSort, timeout }) {
     setArr(arrayProp);
   }, [arrayProp]);
 
-  useEffect(async () => {
+  useEffect(() => {
     if(doSort) {
-      let tempArr = [...arr];
-      await insertionSort(tempArr);
-      setDoSort(false);
+      const runSort = async () => {
+        let tempArr = [...arr];
+        await insertionSort(tempArr);
+        setDoSort(false);
+      };
+      runSort();
     }
   }, [doSort])
 
