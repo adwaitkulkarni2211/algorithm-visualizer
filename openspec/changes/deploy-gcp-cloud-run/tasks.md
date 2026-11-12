@@ -14,7 +14,7 @@
 
 ## 3. Initial Deployment Execution (Order of Operations)
 
-- [ ] 3.1 Initialize Terraform (`terraform init`) and provision Phase 1 resources (APIs and Artifact Registry repository).
+- [x] 3.1 Initialize Terraform (`terraform init`) and provision Phase 1 resources (APIs and Artifact Registry repository).
 - [x] 3.2 Build and push the container image to Artifact Registry via Google Cloud Build (`gcloud builds submit`).
 - [x] 3.3 Apply full Terraform configuration (`terraform apply`) to provision the Cloud Run service and public invoker policy.
 - [x] 3.4 Verify the initial live Cloud Run HTTPS service URL returns the React application with status 200.
