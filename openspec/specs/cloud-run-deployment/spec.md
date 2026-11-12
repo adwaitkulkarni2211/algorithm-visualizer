@@ -1,10 +1,10 @@
-# Spec Delta
+# Cloud Run Deployment Specification
 
 ## Purpose
 
 Provides containerized public HTTPS hosting for the Algorithm Visualizer single-page application on Google Cloud Run with remote state tracking and automated CI/CD deployment.
 
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Containerized SPA Web Serving
 The deployment SHALL package the production React build inside an Nginx container that serves static assets and routes unmatched paths to index.html.

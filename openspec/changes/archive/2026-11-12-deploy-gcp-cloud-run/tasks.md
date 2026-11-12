@@ -27,5 +27,5 @@
 
 ## 5. Verification and Canonical Documentation
 
-- [ ] 5.1 Push branch `deploy-gcp-cloud-run` to GitHub and guide user: **[USER ACTION: Open PR and merge to `main` on GitHub]**, then verify the automated GitHub Actions workflow triggers and completes successfully.
+- [x] 5.1 Push branch `deploy-gcp-cloud-run` to GitHub and guide user: **[USER ACTION: Open PR and merge to `main` on GitHub]**, then verify the automated GitHub Actions workflow triggers and completes successfully.
 - [x] 5.2 Update `docs/architecture.md` with the new GCP hosting model, Terraform infrastructure layout, GCS state management, CI/CD pipeline, and operational procedures.
